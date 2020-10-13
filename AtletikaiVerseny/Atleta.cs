@@ -26,12 +26,12 @@ namespace AtletikaiVerseny
             string[] adat = szoveg.Split(';');
             
             Rajtszam = adat[0];
+            
             VezNev = adat[1];
             Egyesulet = adat[2];
             Ugras = int.Parse(adat[3]);
             
         }
-
 
 
 

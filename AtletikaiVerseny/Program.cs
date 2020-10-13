@@ -13,14 +13,20 @@ namespace AtletikaiVerseny
 
         static void Beolvas()
         {
-            Console.WriteLine("1. feladat: adatok beolvasása");
-            StreamReader file = new StreamReader("tavol.csv");
-            while (!file.EndOfStream)
-            {
-                atletak.Add(new Atleta(Console.ReadLine()));
-            }
 
-            file.Close();
+            Console.WriteLine("1. feladat: adatok beolvasása");
+            
+            
+                StreamReader sr = new StreamReader("tavol.csv");
+                while (!sr.EndOfStream)
+                {
+                    atletak.Add(new Atleta(sr.ReadLine()));
+                }
+
+                sr.Close();
+            
+
+
 
         }
 
@@ -29,7 +35,7 @@ namespace AtletikaiVerseny
             Console.WriteLine("\n2. feladat: Nevek és ugrások");
             foreach (var item in atletak)
             {
-                Console.WriteLine("{0,10} {-1,10}",item.VezNev,item.Ugras);
+                Console.WriteLine("{0} {1}",item.VezNev,item.Ugras);
             }
 
         }
@@ -97,6 +103,7 @@ namespace AtletikaiVerseny
 
         static void feladat6()
         {
+            Console.WriteLine("\n6.feladat: adatok fájlba írása");
             StreamWriter sw = new StreamWriter("versenyzok.txt");
             for (int i = 0; i < atletak.Count; i++)
             {
